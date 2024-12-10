@@ -1,0 +1,155 @@
+.authentication {
+    background-image: url("../assets/images/home-3.png") !important;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+#aks-file-upload {
+    margin-top: 0;
+}
+.aks-file-upload {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+.aks-file-upload-content {
+    padding: 0;
+}
+.aks-file-upload-label {
+    font-weight: 400;
+    color: #495057;
+}
+.profile-page .profile-header {
+    background: rgba(0, 0, 0, 0) url(images/profile-bg-1.jpg) repeat scroll
+        center center/cover;
+}
+.profile_info {
+    position: relative;
+    z-index: 2;
+}
+.profile-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(
+        0,
+        0,
+        0,
+        0.5
+    ); /* Adjust the overlay color and opacity */
+    z-index: 1; /* Ensure the overlay appears above the content */
+}
+.patients .all-patients h5 .edit {
+    margin-left: 10px;
+}
+.switch-chebkox {
+    height: 0 !important;
+    width: 0 !important;
+    visibility: hidden !important;
+}
+
+.switch-chebkox label {
+    cursor: pointer !important;
+    text-indent: -9999px !important;
+    width: 200px !important;
+    height: 100px !important;
+    background: grey !important;
+    display: block !important;
+    border-radius: 100px !important;
+    position: relative !important;
+}
+
+.switch-chebkox label:after {
+    content: "" !important;
+    position: absolute !important;
+    top: 5px !important;
+    left: 5px !important;
+    width: 90px !important;
+    height: 90px !important;
+    background: #fff !important;
+    border-radius: 90px !important;
+    transition: 0.3s !important;
+}
+
+.switch-chebkox:checked + .switch-chebkox label {
+    background: #bada55 !important;
+}
+
+.switch-chebkox:checked + .switch-chebkox label:after {
+    left: calc(100% - 5px) !important;
+    transform: translateX(-100%) !important;
+}
+
+.switch-chebkox label:active:after {
+    width: 130px !important;
+}
+.fa-file-pdf,
+.fa-file-word {
+    font-size: 3vh !important;
+}
+
+.alert-dismissible .close {
+    right: 0 !important;
+    top: 0 !important;
+    padding: 15px 10px !important;
+    font-size: 15px !important;
+}
+
+.content {
+    min-height: 90vh;
+}
+
+.form-control {
+    font-size: 0.9rem;
+}
+
+.form-group label {
+    font-weight: 500;
+}
+
+.form-control[disabled],
+.form-control[readonly] {
+    background-color: #e4e4e4;
+}
+
+.select2-container--default .select2-selection--single {
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+    border-color: #bdbdbd;
+}
+
+.select2-container .select2-selection--single {
+    height: 32px;
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+    padding-left: 0;
+}
+
+.select2-container--default .select2-selection--multiple {
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+    border-color: #bdbdbd;
+}
+.field-icon {
+    float: right;
+    margin-left: -25px;
+    margin-top: -25px;
+    position: relative;
+    z-index: 2;
+}
+@media only screen and (max-width: 700px) {
+    .container-login {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}

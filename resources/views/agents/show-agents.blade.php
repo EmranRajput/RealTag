@@ -1,0 +1,101 @@
+@extends('layout.app')
+@push('css')
+<style>
+.profile-img {
+    width: 200px;
+    height: 200px;
+    box-shadow: 0px 0px 20px 5px rgba(100, 100, 100, 0.1);
+}
+
+.profile-img input {
+    display: none;
+}
+
+.profile-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-img div {
+    position: relative;
+    height: 40px;
+    margin-top: -40px;
+    background: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    line-height: 40px;
+    font-size: 13px;
+    color: #f5f5f5;
+    font-weight: 600;
+}
+
+.profile-img div span {
+    font-size: 40px;
+}
+</style>
+@endpush
+@section('content')
+<section class="content profile-page">
+    <div class="container-fluid">
+        <div class="row clearfix">
+            <div class="col-md-12 p-l-0 p-r-0">
+                <section class="boxs-simple">
+                    <div class="d-flex">
+                        <h4>Agents</h4>
+                    </div>
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Email</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($getInvites as $template)
+                            <tr class="delete_{{$template->id}}">
+                                <td>{{ @$template->email }}</td>
+                                <td>
+                                    @if($template->is_register == 1)
+                                    <button class="btn btn-success"> Linked</button>
+                                    @else
+                                    <button class="btn btn-info resend-link" data-id="{{ $template->id}}">
+                                        Resend</button>
+                                    @endif
+                                </td>
+
+                            </tr>
+                            @endforeach
+
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+@endsection
+@push('script')
+<script>
+$(".resend-link").click(function() {
+    var id = $(this).attr("data-id");
+    var _url = "{{ route('resend.agent.link')}}";
+    $.ajax({
+        type: "POST",
+        url: _url,
+        data: {
+            id: id
+        },
+        success: function(response) {
+            if (response.success) {
+                showAlert(1, "We have e-mailed invitation link!");
+            } else {
+                showAlert(0, "Action Failed!Please try again later.");
+            }
+        }
+    });
+});
+</script>
+@endpush
